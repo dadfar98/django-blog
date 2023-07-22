@@ -1,4 +1,5 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
+
 {% block content %}
 <style>
     body {
@@ -44,8 +45,9 @@
                 </div>
             </div>
             {% endfor %}
+            {% block pagination %} {% include 'layouts/pagination.html' %}  {% endblock pagination %}
         </div>
-        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+        {% block sidebar %} {% include 'layouts/sidebar.html' %} {% endblock sidebar %}
     </div>
 </div>
 {%endblock%}
