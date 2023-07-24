@@ -21,6 +21,7 @@
             <div class="container py-4 border-bottom">
                 <div class="row">
                     <div class="col column">
+                        {% if post_list.1 %}
                         <div class="card my-2 border-bottom" style="width: 100%;">
                                 <img src="{{post_list.1.image.url}}" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -31,7 +32,8 @@
     <!--                              <p class="fw-light" style="font-size: 12px;">MAY 4 . <a href="#" style="color: #000;">AUSTRALIAN PROPERTY MARKET</a></p>-->
                             </div>
                         </div>
-
+                        {% endif %}
+                        {% if post_list.2 %}
                         <div class="card my-2" style="width: 100%;">
                                 <img src="{{post_list.2.image.url}}" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -42,8 +44,10 @@
     <!--                              <p class="fw-light" style="font-size: 12px;">MAY 4 . <a href="#" style="color: #000;">AUSTRALIAN PROPERTY MARKET</a></p>-->
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                     <div class="col-6">
+                        {% if post_list.0 %}
                         <div class="card my-2 pb-5 text-center" style="width: 100%; background-color: #f7f7f7ff; border: none;">
                             <img src="{{post_list.0.image.url}}" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -56,6 +60,8 @@
 <!--                              <p class="fw-light" style="font-size: 12px; color: #8c8c8cff;">MAY 4 . <a href="#" style="color: #8c8c8cff;">AUSTRALIAN PROPERTY MARKET</a></p>-->
                             </div>
                         </div>
+                        {% endif %}
+
                     </div>
                     <div class="col mt-3">
                         <div class="row align-item-center mb-3 border-bottom border-3">
