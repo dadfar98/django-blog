@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    command: python manage.py runserver 0.0.0.0:12000
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 12000:12000
+    env_file:
+      - ./.env
+  db:
+    image: postgres:alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=djblog
+volumes:
+  postgres_data:
