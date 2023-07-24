@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg border-bottom">
         <div class="container-fluid align-items-center justify-content-between">
             <div class="col">
-              <a class="navbar-brand" href="#">Navbar</a>
+              <a class="navbar-brand" href="{% url 'blog_home' %}">Navbar</a>
             </div>
             <div class="col text-center">
               <h4>Australian Property Market</h4>
@@ -44,21 +44,6 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid d-flex border-bottom align-items-center justify-content-center p-0 m-0">
-        <nav class="navbar text-center p-0 pt-2">
-            <ul class="nav nav-underline" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active fs-6 fw-light" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link fs-6 fw-light" id="archive-tab" data-bs-toggle="tab" data-bs-target="#archive-tab-pane" type="button" role="tab" aria-controls="archive-tab-pane" aria-selected="false">Archive</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link fs-6 fw-light" id="about-tab" data-bs-toggle="tab" data-bs-target="#about-tab-pane" type="button" role="tab" aria-controls="about-tab-pane" aria-selected="false">About</button>
-                </li>
-            </ul>
-        </nav>
-    </div>
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
