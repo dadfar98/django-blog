@@ -4,16 +4,16 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
+    (0, "Draft"),
+    (1, "Publish")
 )
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    description = models.CharField(max_length=255, null=True)
-    image = models.ImageField(upload_to='images')
+    description = models.CharField(max_length=255, default=None, blank=True, null=True)
+    image = models.ImageField(default=None, upload_to='images')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     content = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)

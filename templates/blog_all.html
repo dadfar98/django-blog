@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="d-flex flex-wrap">
+                            {% for post in post_list %}
+                            <div class="card my-2 border-bottom m-2" style="width: 18rem;">
+                                <img src="{{post.image.url}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <a href="{% url 'blog_detail' post.slug %}">
+                                        <h5 class="card-title">{{post.title}}</h5>
+                                    </a>
+                                    <p class="card-text text-muted"><small>{{post.description}}</small></p>
+<!--                                            <p class="fw-light" style="font-size: 12px;">MAY 4 . <a href="#" style="color: #000;">AUSTRALIAN PROPERTY MARKET</a></p>-->
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row justify-content-center">
+                            {% block pagination %} {% include 'layouts/pagination.html' %}  {% endblock pagination %}
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}
