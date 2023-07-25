@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head>
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        {% if object %}
+        <title>{{ object.title }}</title>
+        {% else %}
+        <title>Intelli Fund Django Blog Engine</title>
+        {% endif %}
+        <meta content="{% if object.description %} {{object.description}} {% endif %}" name="description">
+
+        <meta content="" name="keywords">
+
+
+        <!-- Favicons -->
+        <link href="{% static '/img/favicon.png' %}" rel="icon">
+        <link href="{% static '/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+        <!-- Vendor CSS Files -->
+        <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="{% static '/css/style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-lg border-bottom">
+        <div class="container-fluid align-items-center justify-content-between">
+            <div class="col">
+              <a class="navbar-brand" href="{% url 'blog_home' %}">Navbar</a>
+            </div>
+            <div class="col text-center">
+              <h4>Australian Property Market</h4>
+            </div>
+            <div class="col">
+              <form class="d-flex justify-content-end" role="search">
+                  <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                  <button type="button" class="btn" style="background-color: #fd7e14; color: #fff; font-size: 13px;">Subscribe</button>
+                  <button type="button" class="btn text-nowrap" style="font-size: 13px;">Sign in</button>
+              </form>
+            </div>
+        </div>
+    </nav>
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+        <!-- Footer -->
+        <footer class="container-fluid border-top" style="background-color: #ebebebff;">
+            <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+            <div class="d-flex justify-content-center align-item-center py-3">
+                <p style="color: #8c8c8cff; font-size: 13px;">
+                    © 2023 Australian Property Market . <a href="#" style="color: #8c8c8cff;">Privacy</a> . <a href="#" style="color: #8c8c8cff;">Terms</a> . <a href="#" style="color: #8c8c8cff;">Collection notice</a>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
