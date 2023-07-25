@@ -139,13 +139,13 @@ USE_TZ = True
 
 STATIC_ROOT = 'static/'
 
-STATIC_URL = 'static/'
+STATIC_URL = 'blog-static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets'),
 ]
 
 # Base url to serve media files
-MEDIA_URL = '/media/'
+MEDIA_URL = '/blog-media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
