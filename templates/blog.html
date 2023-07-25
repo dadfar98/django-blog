@@ -63,48 +63,20 @@
                         {% endif %}
 
                     </div>
-                    <div class="col mt-3">
-                        <div class="row align-item-center mb-3 border-bottom border-3">
-                            <div class="col text-left">
-                                <p class="fw-bold" style="font-size: 12px;">MOST RECENT</p>
-                            </div>
-                            <div class="col text-end">
-                                <p style="font-size: 12px; color: #8c8c8cff;">
-                                    <a href="{% url 'blog_all' %}" style="color: #8c8c8cff;">VIEW ALL</a>
-                                </p>
-                            </div>
-                        </div>
-                        {% for post in post_list %}
-                            <div class="card pb-5 pt-2 border-bottom" style="width: 100%; border: none; border-radius: 0;">
-                                <div class="row g-0">
-                                  <div class="col-md-8">
-                                    <div class="card-body p-0">
-                                    <a href="{% url 'blog_detail' post.slug %}">
-                                      <h6 class="card-title">{{post.title}}</h6>
-<!--                                      <p class="fw-light" style="font-size: 12px; color: #8c8c8cff;">MAY 4 . <a href="#" style="color: #8c8c8cff;">AUSTRALIAN PROPERTY MARKET</a></p>-->
-                                    </a>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <img src="{{post.image.url}}" class="img-fluid rounded" alt="{{post.title}}">
-                                  </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+                            {% block sidebar %} {% include 'layouts/sidebar.html' %} {% endblock sidebar %}
                 </div>
             </div>
             <div class="container mt-3">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-12">
                         <nav class="navbar text-center p-0 py-2">
                             <ul class="nav arshive-tab" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link active fs-6 fw-light" style="font-size: 12px;" id="newHome-tab" data-bs-toggle="tab" data-bs-target="#newHome-tab-pane" type="button" role="tab" aria-controls="newHome-tab-pane" aria-selected="true">New</button>
                                 </li>
-<!--                                <li class="nav-item" role="presentation">-->
-<!--                                  <button class="nav-link fs-6 fw-light" style="font-size: 12px;" id="topHome-tab" data-bs-toggle="tab" data-bs-target="#topHome-tab-pane" type="button" role="tab" aria-controls="topHome-tab-pane" aria-selected="false">Top</button>-->
-<!--                                </li>-->
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link fs-6 fw-light" style="font-size: 12px;" id="topHome-tab" data-bs-toggle="tab" data-bs-target="#topHome-tab-pane" type="button" role="tab" aria-controls="topHome-tab-pane" aria-selected="false">Top</button>
+                                </li>
                             </ul>
                         </nav>
                         <div class="tab-content" id="myTabContent">
@@ -129,7 +101,22 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="topHome-tab-pane" role="tabpanel" aria-labelledby="topHome-tab" tabindex="0"></div>
+                            <div class="tab-pane fade" id="topHome-tab-pane" role="tabpanel" aria-labelledby="topHome-tab" tabindex="0">
+                                <div class="d-flex flex-wrap">
+                                    {% for post in post_list %}
+                                    <div class="card my-2 border-bottom m-2" style="width: 18rem;">
+                                        <img src="{{post.image.url}}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <a href="{% url 'blog_detail' post.slug %}">
+                                                <h5 class="card-title">{{post.title}}</h5>
+                                            </a>
+                                            <p class="card-text text-muted"><small>{{post.description}}</small></p>
+<!--                                            <p class="fw-light" style="font-size: 12px;">MAY 4 . <a href="#" style="color: #000;">AUSTRALIAN PROPERTY MARKET</a></p>-->
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col"></div>

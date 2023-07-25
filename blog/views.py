@@ -6,6 +6,11 @@ class PostHome(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-id')[:5]
     template_name = 'blog.html'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(generic.ListView, self).get_context_data(*args, **kwargs)
+        context['recent_posts'] = Post.objects.all().order_by('-id')[:5]
+        return context
+
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')

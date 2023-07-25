@@ -1,0 +1,31 @@
+{% block sidebar %}
+    <div class="col mt-3">
+        <div class="row align-item-center mb-3 border-bottom border-3">
+            <div class="col text-left">
+                <p class="fw-bold" style="font-size: 12px;">MOST RECENT</p>
+            </div>
+            <div class="col text-end">
+                <p style="font-size: 12px; color: #8c8c8cff;">
+                    <a href="{% url 'blog_all' %}" style="color: #8c8c8cff;">VIEW ALL</a>
+                </p>
+            </div>
+        </div>
+        {% for post in recent_posts %}
+            <div class="card pb-5 pt-2 border-bottom" style="width: 100%; border: none; border-radius: 0;">
+                <div class="row g-0">
+                  <div class="col-md-8">
+                    <div class="card-body p-0">
+                    <a href="{% url 'blog_detail' post.slug %}">
+                      <h6 class="card-title">{{post.title}}</h6>
+    <!--                                      <p class="fw-light" style="font-size: 12px; color: #8c8c8cff;">MAY 4 . <a href="#" style="color: #8c8c8cff;">AUSTRALIAN PROPERTY MARKET</a></p>-->
+                    </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <img src="{{post.image.url}}" class="img-fluid rounded" alt="{{post.title}}">
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock sidebar %}
