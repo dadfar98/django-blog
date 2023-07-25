@@ -1,2 +1,7 @@
 media
 db.sqlite3
+*.env
+*.pyc
+__pycache__
+.vscode
+data

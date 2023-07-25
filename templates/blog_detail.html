@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs py-3">
+      <div class="container">
+        <ol>
+          <li><a href="{% url 'blog_home' %}">Home</a></li>
+          <li><a href="{% url 'blog_home' %}">Blog</a></li>
+          <li>{{ object.slug}}</li>
+        </ol>
+<!--        <h2>{% block title %} {{ object.title }} {% endblock title %}</h2>-->
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8 entries">
+            <article class="entry entry-single">
+
+              <h2 class="entry-title">
+                {{ object.title }}
+              </h2>
+
+              {% if object.description %}
+              <p class="entry-desc text-muted">{{ object.description | safe }}</p>
+              {% endif %}
+
+              <div class="entry-img mt-2 mb-5">
+                <img src="{{object.image.url}}" alt="" class="img-fluid w-100">
+              </div>
+
+              <div class="entry-content">
+                {{ object.content | safe }}
+              </div>
+
+            </article><!-- End blog entry -->
+
+          </div><!-- End blog entries list -->
+
+            {% block sidebar %} {% include 'layouts/sidebar.html' %} {% endblock sidebar %}
+<!--          <div class="col-lg-4">-->
+<!--            <div class="sidebar">-->
+<!--              <h3 class="sidebar-title">Recent Posts</h3>-->
+<!--              <div class="sidebar-item recent-posts">-->
+<!--                {% for post in recent_posts %}-->
+<!--                <div class="post-item clearfix">-->
+<!--                  <img src="{{post.image.url}}" alt="">-->
+<!--                  <h4><a href="{% url 'blog_detail' post.slug %}">{{post.title}}</a></h4>-->
+<!--                  {% if post.description %}-->
+<!--                  <p><small>{{post.description}}</small></p>-->
+<!--                  {% endif %}-->
+<!--&lt;!&ndash;                  <time datetime="2020-01-01">Jan 1, 2020</time>&ndash;&gt;-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--              </div>&lt;!&ndash; End sidebar recent posts&ndash;&gt;-->
+<!--                <h5 class="text-center fw-bold"><a href="{% url 'blog_home' %}">More Posts</a></h5>-->
+
+<!--            </div>&lt;!&ndash; End sidebar &ndash;&gt;-->
+
+<!--          </div>&lt;!&ndash; End blog sidebar &ndash;&gt;-->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+{%endblock%}
