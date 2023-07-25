@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('blog/admin/', admin.site.urls),
     path('', include('blog.urls')),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),  # The CKEditor path
 ]
